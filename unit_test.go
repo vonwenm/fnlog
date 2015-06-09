@@ -19,6 +19,3 @@ func Example() {
 	// Output:
 	//
 }
-
-func init() {
-}
