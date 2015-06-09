@@ -5,10 +5,10 @@ import (
 	"log"
 )
 
-var (
+/*var (
 	noTagLog *log.Logger
 )
-
+*/
 func Example() {
 	iLog := fnlog.New("i")
 	wLog := fnlog.New("w")
@@ -17,7 +17,7 @@ func Example() {
 	iLog.Printf("print infos")
 	wLog.Printf("print warnnings")
 	eLog.Printf("print errors")
-	noTagLog.Printf("print messages without tag")
+	//noTagLog.Printf("print messages without tag")
 
 	// Output:
 	// 2015/06/09 14:32:59 unit_test.go:14 fnlog_test.Example(): i: print infos
@@ -27,5 +27,5 @@ func Example() {
 }
 
 func init() {
-	noTagLog = fnlog.New("")
+	//noTagLog = fnlog.New("")
 }
