@@ -10,10 +10,10 @@ var (
 	DEBUG bool = false
 )
 
-// Should implement io.Writer interface
+// Should implement io.Writer interface.
 type logger struct{}
 
-// Write is the implementation of io.Writer for our own logger
+// Write is the implementation of io.Writer for our own logger.
 func (l logger) Write(p []byte) (n int, err error) {
 	pc, file, line, ok := runtime.Caller(4)
 	if DEBUG {
@@ -33,11 +33,10 @@ func (l logger) Write(p []byte) (n int, err error) {
 	return len(p), nil
 }
 
-// New create a new logger which can print file, function, line.
-// Params:
-//     tag: Tag will be added before log message.
-// Return:
-//     *log.Logger that can call any log.Logger function(Ex: Printf(), Println()...).
+// New create a new log.Logger which can print users' tag package / file / function name and line number.
+//
+// Params: tag - tag will be added before log message.
+// Return: log.Logger that can call any log.Logger function(Ex: Printf(), Println()...).
 func New(tag string) *log.Logger {
 	prefix := ""
 	if tag != "" {
