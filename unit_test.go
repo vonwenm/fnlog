@@ -5,21 +5,27 @@ import (
 	"log"
 )
 
-func Example() {
-	iLog := fnlog.New("i")
-	wLog := fnlog.New("w")
-	eLog := fnlog.New("e")
+var (
+	noTag *log.Logger
+)
 
-	iLog.Printf("print infos")
-	wLog.Printf("print warnnings")
-	eLog.Printf("print errors")
+func Example() {
+	i := fnlog.New("i", true, false, false)
+	w := fnlog.New("w", true, false, false)
+	e := fnlog.New("e", true, false, true)
+
+	i.Printf("infos")
+	w.Printf("warnnings")
+	e.Printf("errors")
+	noTag.Printf("no tag")
 
 	// Output:
-	// 2015/06/09 14:32:59 unit_test.go:14 fnlog_test.Example(): i: print infos
-	// 2015/06/09 14:32:59 unit_test.go:15 fnlog_test.Example(): w: print warnnings
-	// 2015/06/09 14:32:59 unit_test.go:16 fnlog_test.Example(): e: print errors
-	// 2015/06/09 14:32:59 unit_test.go:17 fnlog_test.Example(): print messages without tag
+	// i: infos
+	// w: warnnings
+	// e: unit_test.go:19 fnlog_test.Example(): errors
+	// no tag
 }
 
 func init() {
+	noTag = fnlog.New("", true, false, false)
 }

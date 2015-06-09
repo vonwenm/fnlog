@@ -8,7 +8,6 @@ It make it easier to debug golang applications.
 
     import (
         "github.com/northbright/fnlog"
-        "log"
     )
 
     func main() {
@@ -29,6 +28,10 @@ It make it easier to debug golang applications.
     2015/04/24 10:43:25 unit_test.go:17 fnlog.TestLogger(): w: print warnnings
     2015/04/24 10:43:25 unit_test.go:18 fnlog.TestLogger(): e: print errors
     2015/04/24 10:43:25 unit_test.go:19 fnlog.TestLogger(): print messages without tag
+
+#### Documentation
+* [API Reference]()
+
 
 #### Thanks
 
