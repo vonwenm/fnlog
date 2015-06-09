@@ -1,4 +1,3 @@
-// logger can print function name and file, line info
 package fnlog
 
 import (
@@ -12,15 +11,10 @@ var (
 )
 
 // Should implement io.Writer interface
-type Logger struct{}
+type logger struct{}
 
-// Implementation of io.Writer for our own logger
-// Params:
-//     p: Input log message
-// Return:
-//     n: Count of bytes processed
-//     err: Error
-func (l Logger) Write(p []byte) (n int, err error) {
+// Write is the implementation of io.Writer for our own logger
+func (l logger) Write(p []byte) (n int, err error) {
 	pc, file, line, ok := runtime.Caller(4)
 	if DEBUG {
 		log.Printf("pc: %v, file: %v, line: %v, ok: %v", pc, file, line, ok)
@@ -39,15 +33,15 @@ func (l Logger) Write(p []byte) (n int, err error) {
 	return len(p), nil
 }
 
-// New a logger which can print file, function, line
+// New create a new logger which can print file, function, line.
 // Params:
-//     tag: Tag will be added before log message
+//     tag: Tag will be added before log message.
 // Return:
-//     *log.Logger that can call any function(Ex: Printf(), Println()...)
+//     *log.Logger that can call any log.Logger function(Ex: Printf(), Println()...).
 func New(tag string) *log.Logger {
 	prefix := ""
 	if tag != "" {
 		prefix = tag + ": "
 	}
-	return log.New(Logger{}, prefix, 0)
+	return log.New(logger{}, prefix, 0)
 }
