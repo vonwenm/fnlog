@@ -5,11 +5,17 @@ import (
 	"log"
 )
 
+var (
+	noTagLog *log.Logger
+)
+
 func Example() {
 	iLog := fnlog.New("i")
 	wLog := fnlog.New("w")
 	eLog := fnlog.New("e")
-	var noTagLog *log.Logger = fnlog.New("")
+
+	// Global *log.Logger
+	noTagLog = fnlog.New("")
 
 	iLog.Printf("print infos")
 	wLog.Printf("print warnnings")
