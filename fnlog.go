@@ -35,8 +35,10 @@ func (l logger) Write(p []byte) (n int, err error) {
 
 // New create a new log.Logger which can print users' tag package / file / function name and line number.
 //
-// Params: tag - tag will be added before log message.
-// Return: log.Logger that can call any log.Logger function(Ex: Printf(), Println()...).
+//   Params:
+//       tag - tag will be added before log message.
+//   Return:
+//       log.Logger that can call any log.Logger function(Ex: Printf(), Println()...).
 func New(tag string) *log.Logger {
 	prefix := ""
 	if tag != "" {

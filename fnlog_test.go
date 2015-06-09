@@ -6,7 +6,6 @@ import (
 )
 
 func Example() {
-	// New a *log.Logger
 	iLog := fnlog.New("i")
 	wLog := fnlog.New("w")
 	eLog := fnlog.New("e")
@@ -18,5 +17,4 @@ func Example() {
 	noTagLog.Printf("print messages without tag")
 
 	// Output:
-
 }
