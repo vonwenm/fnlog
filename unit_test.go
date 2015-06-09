@@ -17,4 +17,8 @@ func Example() {
 	noTagLog.Printf("print messages without tag")
 
 	// Output:
+	//
+}
+
+func init() {
 }
