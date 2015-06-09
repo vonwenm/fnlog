@@ -14,7 +14,6 @@ func Example() {
 	wLog := fnlog.New("w")
 	eLog := fnlog.New("e")
 
-	// Global *log.Logger
 	noTagLog = fnlog.New("")
 
 	iLog.Printf("print infos")
